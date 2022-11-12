@@ -60,8 +60,11 @@ def server():
         conn, addr = server.accept()  
         print ('Got connection from', addr )
         _thread.start_new_thread(on_new_connection,(conn,addr))   
-        while True:
-            i=1 
+        startTime = time.time()
+        while time.time()-startTime<5:
+            continue
+        print ('server died')
+        server.close()
     except KeyboardInterrupt:
         print ('server stopped')
         server.close()
