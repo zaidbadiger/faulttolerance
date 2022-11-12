@@ -13,6 +13,8 @@ def client():
     # connect to the server on local computer
     client.connect((host, port))
     
+    client.send("Client 1".encode())
+    
     # receive data from the server and decoding to get the string.
     while True:
         data = (client.recv(1024).decode())
